@@ -25,10 +25,10 @@ body {
 }
 
 .minimize{
-  width: 40px;
-  height: 40px;
-  background-image: url(../img/minimize.png);
+  width: 30px;
+  height: 30px;
   border: none;
+  
 }
 
 /* The popup chat - hidden by default */
@@ -191,7 +191,7 @@ body {
   padding: 7px 7px;
   /* right: 0px; */
   display: block;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: 0;
   background-color: rgba(254,160,46,1);
@@ -199,14 +199,39 @@ body {
   font-weight: bold;
 }
 
+::placeholder{
+  color: #a9a9a9;
+  font-family: Montserrat;
+  font-weight:lighter;
+}
+
 .popup-footer {
+  width: 500px;
+  height: 42px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding: 10px 10px;
   bottom: 0px;
   position: absolute;
   overflow: hidden;
+  color: white;
+  font-family: Montserrat;
+}
+
+.cr{
+  left: 3px;
+  font-family: Montserrat;
+  font-weight: Normal;
+  font-size: 8px;
+  opacity: 1;
+  text-align: center;
+}
+
+.ver1{
+  right: 0px;
+    font-family: Montserrat;
+    font-weight: Normal;
+    font-size: 8px;
+    text-align: center;
 }
 
 /* CHAT BOX AFTER LOGIN */
@@ -227,8 +252,8 @@ body {
 #chat-input {
   background: #f4f7f9;
   width:80%; 
-  position:relative;
-  height:47px;  
+  position:absolute;
+  height:35px;  
   padding-top:10px;
   padding-right:50px;
   padding-bottom:10px;
@@ -250,6 +275,7 @@ body {
 
 #btnSend {
   /* position:absolute; */
+  top: 10px;
   bottom:3px;
   right:10px;
   background: transparent;
