@@ -1,0 +1,286 @@
+body {
+  font-size: 14px;
+  background-image: url(../img/begron.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+ 
+    background: transparent;  
+    background-image: url(../img/Logo_ecentrix.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 25px;
+    right: 0px;
+    width: 100px;
+    height: 100px;
+  
+}
+
+.minimize{
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/minimize.png);
+  border: none;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  /* border: 3px solid #f1f1f1; */
+  z-index: 9;
+  width: 500px;
+  height: 90%;
+  max-height: 100vh;
+  border-radius: 12px 12px 12px 12px;
+  background-image: url('../img/begron_login.png');
+  background-color: rgba(107,107,185,1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+}
+
+#form-container-login {
+  width: 100%;
+  max-width: 100%;
+}
+
+#form-container-login p {
+  margin-bottom: 5px;
+}
+
+/* Add style to login form input */
+#form-container-login input {
+  padding: 10px 10px;
+  border-radius: 12px 12px 12px 12px;
+  border: 1px solid rgba(107,107,185,1);
+  /* color: lightgray; */
+  width: 100%;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/* popup header */
+.popup-header {
+  width: 500px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(35,35,115,1);
+  padding: 15px 15px;
+  color: rgba(254,160,46,1);
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo-name {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-name p {
+  margin-left: 10px;
+}
+
+.popup-header a {
+  cursor: pointer;
+}
+
+/* #call-button {
+  margin-top: 10px;
+}
+#vicall-button {
+  margin-top: 10px;
+}
+#closechat-button {
+  margin-top: 10px;
+} */
+
+/* .closechat-button {
+ top: 100px;
+}  */
+.header-buttons {
+  width: 100px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* popup body */
+
+.popup-body {
+  /* background-color: red; */
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  padding: 20px 20px;
+}
+
+#popup-welcome {
+  margin-bottom: 20px;
+}
+
+.popup-body #popup-welcome h1 {
+  letter-spacing: 2px;
+}
+
+.popup-body #popup-welcome p {
+  font-weight: 100;
+  font-size: 23px;
+}
+
+#fillBtn {
+  width: 80px;
+  border: 2px solid rgba(35,35,115,1);
+  border-radius: 12px 12px 12px 12px;
+  padding: 7px 7px;
+  /* right: 0px; */
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 0;
+  background-color: rgba(254,160,46,1);
+  color: black;
+  font-weight: bold;
+}
+
+.popup-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 10px;
+  bottom: 0px;
+  position: absolute;
+  overflow: hidden;
+}
+
+/* CHAT BOX AFTER LOGIN */
+#myForm {
+  display:none;
+  position: fixed;
+  box-shadow: 0px 5px 35px 9px #ccc;
+}
+
+.chatbox-body {
+  position: relative;  
+  /* height:600px;   */
+  height:auto;
+  border:1px solid #ccc;  
+  overflow: hidden;
+}
+
+#chat-input {
+  background: #f4f7f9;
+  width:80%; 
+  position:relative;
+  height:47px;  
+  padding-top:10px;
+  padding-right:50px;
+  padding-bottom:10px;
+  padding-left:15px;
+  border:none;
+  resize:none;
+  outline:none;
+  border:1px solid #ccc;
+  color:#888;
+  border-top:none;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px;
+  overflow:hidden;
+}
+
+.chat-input > form {
+  margin-bottom: 0;
+}
+
+#btnSend {
+  /* position:absolute; */
+  bottom:3px;
+  right:10px;
+  background: transparent;
+  box-shadow:none;
+  border:none;
+  border-radius:50%;
+  color:#5A5EB9;
+  width:35px;
+  height:35px;
+}
+
+.chat-logs {
+  padding:15px; 
+  height:350px;
+  overflow-y:scroll;
+}
+
+.chat-logs::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.chat-logs::-webkit-scrollbar
+{
+  width: 5px;  
+  background-color: #F5F5F5;
+}
+
+.chat-logs::-webkit-scrollbar-thumb
+{
+  background-color: #5A5EB9;
+}
+

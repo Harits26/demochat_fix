@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Live Server</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- <span id="test">network status</span> -->
+    <button class="open-button" id="open-button"></button> 
+    <div class="chat-popup" id="fill-form">
+        <div class="popup-header">
+            <div class="logo-name">
+                <img alt="logo ecentrix" src="../Client/img/Logo_ecentrix.png" height="57px" width="30px">
+                <p>Demo Contact Center</p>    
+            </div>
+            <a id="closechat-button">
+                <img class="minimize mb-3">
+            </a>
+        </div>
+        <div class="popup-body">
+            <div id="popup-welcome">
+                <h1>eCentrix</h1>
+                <p>Selamat datang, silahkan masukkan email dan nama kakak</p>
+            </div>
+            <form class="form-container" id="form-container-login">
+                <p>Nama</p>
+                <input type="nama" placeholder="Masukkan Nama ...." id="name" require>
+                <p>Email</p>
+                <input type="email" placeholder="Masukkan Email ...." id="email" require>
+                <button type="button" class="btn" id="fillBtn">Kirim</button>
+            </form>
+        </div>
+        <div class="popup-footer">
+            <span>copyright &copy; 2022 eCentrix</span>
+            <span>v.0.1<span>
+        </div>
+    </div>
+    <div class="chat-popup" id="myForm">
+        <div class="popup-header">
+            <div class="logo-name">
+                <img alt="logo ecentrix" src="../Client/img/Logo_ecentrix.png" height="57px" width="30px">
+                <p>Demo Contact Center</p>    
+            </div>
+            <div class="header-buttons">
+                <a id="call-button">
+                    <img src="../Client/img/call.png" height="25px" width="25px">
+                </a>    
+                <a id="vicall-button">
+                    <img src="../Client/img/vicall.png" height="25px" width="25px">
+                </a>    
+
+                <a class="btn cancel">
+                    <img src="../Client/img/minimize.png" height="25px" width="25px">
+                </a>    
+            </div>
+        </div>
+        <div class="chatbox-body">
+            <div class="chatbox-overlay">
+
+            </div>
+            <div class="chat-logs">
+
+            </div>
+            <div class="chat-input">
+                <form id="form-container-chat">
+                    <input id="myid" hidden><br>
+                    <select name="listUsers" id="listUsers" hidden></select>
+                    <!-- <label for="msg">
+                        <b>Message</b>
+                    </label> -->
+                    <input type="text" id="chat-input" placeholder="Send a message..."/>
+                    <!-- <textarea placeholder="Type message.." name="msg" id="msg" required></textarea> -->
+                    <button type="button" id="btnSend">Send</button>
+                    <!-- <button type="button" class="btn cancel">Close</button> -->
+                </form>
+            </div>
+            <div class="popup-footer">
+                <p>copyright &copy; 2022 eCentrix</p>
+                <p>v.0.1</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='main.bundle.js'></script>
+</html>

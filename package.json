@@ -1,0 +1,30 @@
+{
+  "name": "bootcamp",
+  "version": "1.0.0",
+  "description": "ecentrix bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Angga Pratana",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.7.2",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "jquery": "^3.6.1",
+    "json-query": "^2.2.2",
+    "moment-timezone": "^0.5.40",
+    "mysql2": "^2.3.3",
+    "net": "^1.0.2",
+    "path": "^0.12.7",
+    "sequelize": "^6.26.0",
+    "socket.io": "^4.5.4",
+    "socket.io-client": "^4.5.4",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0"
+  }
+}
