@@ -15,11 +15,23 @@ class MyClass{
         });
 
         $('.open-button').click(function(){
-            document.getElementById("fill-form").style.display = "block";
+            document.getElementById("open-button").style.display = "none";
+            if($("#myid").val() == "") {
+                document.getElementById("fill-form").style.display = "block";
+            }
+            else {
+                document.getElementById("myForm").style.display = "block";
+            }
         });
+
+        $('#closechat-button').click(function() {
+            document.getElementById("fill-form").style.display = "none";
+            document.getElementById("open-button").style.display = "block";
+        })
 
         $('.cancel').click(function(){
             document.getElementById("myForm").style.display = "none";
+            document.getElementById("open-button").style.display = "block";
         });
 
         $('#btnSend').click(function(){
@@ -29,12 +41,27 @@ class MyClass{
             })
         });
 
+        // $('.open-button').click(function(){
+        //     document.getElementById("fill-form").style.display = "block";
+        // });
+
+        // $('.cancel').click(function(){
+        //     document.getElementById("myForm").style.display = "none";
+        // });
+
+        // $('#btnSend').click(function(){
+        //     wsconnection.sentChat($('#myid').val(), $('#listUsers').val(), $('#msg').val(), function(rs){
+        //         console.log('>>> return message', rs);
+        //         $('#msg').val('')
+        //     })
+        // });
+
         $('#fillBtn').click(function() {
             var id = Math.floor(Math.random() * 10);
             if($('#name').val() != '' && $('#emai').val() != '') {
                 wsconnection.login("user"+id, $('#name').val(), $('#email').val(), "client 1", function(rs){
                     console.log('>>> login success', rs);
-                    $('#myid').insert
+                    $('#myid').val(rs.name)
                 })
                 $('#name').val('');
                 $('#emai').val('');

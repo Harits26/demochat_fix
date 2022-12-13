@@ -29,6 +29,22 @@ body {
  height: 30px; 
 }
 
+.status{
+  color: #888;
+  font-size: smaller;
+
+}
+
+.badge-success{
+  height: 7px;
+  width:7px;
+  background-color: #4cd137;
+  border-radius: 50%;
+  bottom: 0.8em;
+  right: 0.4em;
+  border:1.5px solid #4cd137;
+}
+
 .minimize{
   width: 30px;
   height: 30px;
@@ -42,6 +58,7 @@ body {
   position: fixed;
   bottom: 15px;
   right: 25px;
+  top: 7px;
   /* border: 3px solid #f1f1f1; */
   z-index: 9;
   width: 500px;
@@ -53,6 +70,25 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+
+.chat-list{
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 25px;
+  top: 7px;
+  /* border: 3px solid #f1f1f1; */
+  z-index: 9;
+  width: 500px;
+  height: 700px;
+  max-height: 100vh;
+  border-radius: 12px 12px 12px 12px;
+  background-image: url('../img/background_chat.png');
+  background-color: rgba(107,107,185,1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 1000px;
 }
 
 /* Add styles to the form container */
@@ -109,9 +145,11 @@ body {
 }
 
 /* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
+
+
+/* .header-buttons {
+  top: 50px;
+} */
 
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
@@ -127,10 +165,11 @@ body {
   justify-content: space-between;
   border-radius: 12px 12px 12px 12px;
   background-color: rgba(35,35,115,1);
-  padding: 10px 10px;
+  padding: 20px 10px;
   color: rgba(254,160,46,1);
   font-size: 17px;
   font-family: 'Montserrat', sans-serif;
+  align-items: center;
 }
 
 .logo-name {
@@ -149,7 +188,7 @@ body {
   cursor: pointer;
 }
 
-#call-button {
+/* #call-button {
   margin-top: 10px;
 }
 #vicall-button {
@@ -157,7 +196,7 @@ body {
 }
 #closechat-button {
   margin-top: 10px;
-}
+} */
 
 .closechat-button {
  width: 30px;
@@ -165,10 +204,13 @@ body {
 } 
 
 .header-buttons {
-  width: 100px;
+  width: 120px;
+  margin-top: 15px;
+  /* padding: 10px; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* popup body */
@@ -260,21 +302,22 @@ body {
 }
 
 
+
 #chat-input {
   background: #f4f7f9;
-  width:60%; 
+  width:85%; 
   position:relative;
   height:35px;  
   padding-top:10px;
   padding-right:50px;
   padding-bottom:10px;
   padding-left:15px;
-  margin-left: 100px;
+  margin-left: 20px;
   border:none;
   resize:none;
   outline:none;
   border:1px solid #ccc;
-  color:#888;
+  color:black;
   /* border-top:none;
   border-bottom-right-radius:5px;
   border-bottom-left-radius:5px; */
@@ -307,11 +350,7 @@ body {
 
 .chat-logs {
   padding:15px; 
-  height:520px;
-<<<<<<< HEAD
-=======
-  left: 200px;
->>>>>>> 8d993886cdfd432f5365e28902ffb3559a2611b9
+  height: 540px;
   overflow-y:scroll;
 }
 
