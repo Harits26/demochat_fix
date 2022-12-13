@@ -40,8 +40,8 @@ body {
 .chat-popup {
   display: none;
   position: fixed;
-  bottom: 10px;
-  right: 15px;
+  bottom: 15px;
+  right: 25px;
   /* border: 3px solid #f1f1f1; */
   z-index: 9;
   width: 500px;
@@ -121,13 +121,13 @@ body {
 /* popup header */
 .popup-header {
   width: 500px;
-  height: 80px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-radius: 12px 12px 12px 12px;
   background-color: rgba(35,35,115,1);
-  padding: 15px 15px;
+  padding: 10px 10px;
   color: rgba(254,160,46,1);
   font-size: 17px;
   font-family: 'Montserrat', sans-serif;
@@ -136,6 +136,9 @@ body {
 .logo-name {
   display: flex;
   flex-direction: row;
+  left: 10px;
+  height: "57px"; 
+  width: "30px";
 }
 
 .logo-name p {
@@ -146,7 +149,7 @@ body {
   cursor: pointer;
 }
 
-/* #call-button {
+#call-button {
   margin-top: 10px;
 }
 #vicall-button {
@@ -154,14 +157,15 @@ body {
 }
 #closechat-button {
   margin-top: 10px;
-} */
+}
 
-/* .closechat-button {
- top: 100px;
-}  */
+.closechat-button {
+ width: 30px;
+ height: 30px;
+} 
+
 .header-buttons {
   width: 100px;
-  margin-top: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -182,11 +186,14 @@ body {
 
 .popup-body #popup-welcome h1 {
   letter-spacing: 2px;
+  font-size: 30px;
 }
 
 .popup-body #popup-welcome p {
+  width: 400px;
+  height: 50px;
   font-weight: 100;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 #fillBtn {
@@ -301,6 +308,10 @@ body {
 .chat-logs {
   padding:15px; 
   height:520px;
+<<<<<<< HEAD
+=======
+  left: 200px;
+>>>>>>> 8d993886cdfd432f5365e28902ffb3559a2611b9
   overflow-y:scroll;
 }
 
