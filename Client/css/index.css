@@ -3,6 +3,7 @@ body {
   background-image: url(../img/begron.png);
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 * {box-sizing: border-box;}
 
@@ -23,6 +24,290 @@ body {
     height: 100px;
   
 }
+
+
+
+#calldiv{
+  width:400px;
+  height:500px;
+  position:absolute;
+  background: rgba(107,107,185,1);
+  background-image: url("../img/background.png");
+  box-shadow: white;
+  /* opacity:0.5; */
+  top:20px;
+  left:50px;
+  /* z-index: -100;  */
+  right: 20px; 
+  bottom: 20px;
+  display: none;
+  border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-size: 500px;
+    background-repeat: no-repeat;
+}
+
+#vid_div{
+  width:400px;
+  height:500px;
+  position:absolute;
+  background: rgba(107,107,185,1);
+  background-image: url("../img/image_vidcall.png");
+  background-position: center;
+  box-shadow: white;
+  /* opacity:0.5; */
+  top:20px;
+  left:50px;
+  /* z-index: -100;  */
+  right: 20px; 
+  bottom: 20px;
+  display: none;
+  border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-size: 500px;
+    background-repeat: no-repeat;
+}
+
+.vicall-contain{
+  margin-top: 250px;
+}
+
+.vocall-title{
+  font-size: 25px;
+  font-family: Montserrat;
+  font-weight:normal;
+  color: white;
+}
+.vocall-number{
+  font-size: 15px;
+  font-family: Montserrat;
+  font-weight:lighter;
+  color: white;
+  top: 10px;
+}
+
+#mutebtn{
+  width: 100px;
+  height: 100px;
+  margin-top: 100px;
+  margin-left:50px
+
+}
+
+#decbtn{
+  width: 120px;
+  height: 120px;
+  margin-top: 95px;
+  margin-left: 50px;
+}
+
+#decvidbtn{
+  width: 120px;
+  height: 120px;
+  margin-top: 95px;
+  margin-left: 50px;
+}
+
+/* VOICE CALL DESIGN */
+  /* .calldiv-content{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+  } */
+
+
+  .v103_666 {
+    width: 300px;
+    height: 500px;
+    background: rgba(107,107,185,1);
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: 900px;
+    opacity: 1;
+    position: absolute;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+  }
+ 
+  .v103_668 {
+    width: 944px;
+    height: 848px;
+    background: none;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 805px;
+    border-radius: 50%;
+  }
+  .v103_669 {
+    width: 100%;
+    height: 868px;
+    background: rgba(254,160,46,1);
+    opacity: 1;
+    position: absolute;
+    top: 69px;
+    left: 0px;
+  }
+  .v103_670 {
+    width: 150px;
+    height: 150px;
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 100px;
+    left: 222px;
+    overflow: hidden;
+  }
+  .v103_671 {
+    width: 150px;
+    height: 150px;
+    background: rgba(168,168,168,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+  }
+  .v103_672 {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    overflow: hidden;
+  }
+  .v103_673 {
+    width: 66px;
+    height: 66px;
+    background-image: url("../img/user.png");
+    opacity: 1;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+  .v103_674 {
+    width: 188px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 261px;
+    left: 209px;
+    font-family: Josefin Sans;
+    font-weight: Medium;
+    font-size: 43px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v103_675 {
+    width: 139px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 327px;
+    left: 233px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 21px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v103_676 {
+    width: 100px;
+    height: 100px;
+    background: url("../img/Decline_Call.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 480px;
+    left: 322px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .v103_677 {
+    width: 100px;
+    height: 100px;
+    background: rgba(250,0,0,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+  }
+  .v103_678 {
+    width: 70px;
+    height: 70px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    overflow: hidden;
+  }
+  .v103_679 {
+    width: 70px;
+    height: 30px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 17px;
+    left: 0px;
+  }
+  .v103_680 {
+    width: 70px;
+    height: 70px;
+    background-image: url("../img/mute.png");
+    opacity: 1;
+    position: absolute;
+    top: 500px;
+    left: 194px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .v103_681 {
+    width: 55px;
+    height: 69px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 7px;
+    overflow: hidden;
+  }
+  .v103_682 {
+    width: 43px;
+    height: 69px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+  }
+  .v103_683 {
+    width: 55px;
+    height: 55px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 2px;
+    left: 0px;
+  }
+  
+/* +++++++++++++++++++++++++   */
+
+
 
 .send-btn{
  width: 30px; 
@@ -176,8 +461,7 @@ body {
   display: flex;
   flex-direction: row;
   left: 10px;
-  height: "57px"; 
-  width: "30px";
+  top :20px;
 }
 
 .logo-name p {
