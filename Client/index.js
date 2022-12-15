@@ -7,7 +7,7 @@ class MyClass {
         const BOT_IMG = "../Client/img/hetset.png";
         const PERSON_IMG = "../Client/img/client.png";
         const BOT_NAME = "eCentrix";
-        const PERSON_NAME = $('#name').val();
+        var PERSON_NAME = "";
 
         const msgerForm = get(".msger-inputarea");
         const msgerInput = get(".msger-input");
@@ -58,8 +58,10 @@ class MyClass {
             })
         });
 
+
         $('#fillBtn').click(function () {
             if ($('#name').val() != '' && $('#email').val() != '') {
+                PERSON_NAME = $('#name').val();
                 wsconnection.login($('#name').val(), $('#email').val(), "client 2", function (rs) {
                     console.log('>>> login success', rs);
                     $('#myid').val(rs.name);
@@ -83,9 +85,6 @@ class MyClass {
                 alert('WAJIB ISI EMAIL DAN NAMA');
             }
         })
-
-
-
 
         msgerForm.addEventListener("submit", event => {
             event.preventDefault();
