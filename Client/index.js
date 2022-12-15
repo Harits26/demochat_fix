@@ -52,7 +52,7 @@ class MyClass {
         });
 
         $('#btnSend').click(function () {
-            wsconnection.sentChat($('#name').val(), 'agent', $('#chat-input').val(), function (rs) {
+            wsconnection.sentChat(PERSON_NAME, 'agent', $('#chat-input').val(), function (rs) {
                 console.log('>>> return message', rs);
                 $('#msg').val('')
             })
