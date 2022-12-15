@@ -30,6 +30,10 @@ body {
  cursor: pointer;
 }
 
+.send-btn:hover{
+  box-shadow: inset;
+}
+
 .status{
   color: #888;
   font-size: smaller;

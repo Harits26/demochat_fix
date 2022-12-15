@@ -3,6 +3,23 @@ import ws from '../Client/websocket'
 class MyClass {
 
     constructor() {
+        // Icons made by Freepik from www.flaticon.com
+        const BOT_IMG = "../Client/img/hetset.png";
+        const PERSON_IMG = "../Client/img/client.png";
+        const BOT_NAME = "eCentrix";
+        const PERSON_NAME = $('#name').val();
+
+        const msgerForm = get(".msger-inputarea");
+        const msgerInput = get(".msger-input");
+        const msgerChat = get(".msger-chat");
+
+        const BOT_MSGS = [
+            "Hi, how are you?",
+            "Ohh... I can't understand what you trying to say. Sorry!",
+            "I like to play games... But I don't know how to play!",
+            "Sorry if my answers are not relevant. :))",
+            "I feel sleepy! :("
+        ];
 
         var wsconnection = new ws($('#myid').val());
 
@@ -35,16 +52,15 @@ class MyClass {
         });
 
         $('#btnSend').click(function () {
-            wsconnection.sentChat($('#myid').val(), $('#listUsers').val(), $('#msg').val(), function (rs) {
+            wsconnection.sentChat($('#name').val(), 'agent', $('#chat-input').val(), function (rs) {
                 console.log('>>> return message', rs);
                 $('#msg').val('')
             })
         });
 
         $('#fillBtn').click(function () {
-            var id = Math.floor(Math.random() * 10);
-            if ($('#name').val() != '' && $('#emai').val() != '') {
-                wsconnection.login("user" + id, $('#name').val(), $('#email').val(), "client 1", function (rs) {
+            if ($('#name').val() != '' && $('#email').val() != '') {
+                wsconnection.login($('#name').val(), $('#email').val(), "client 2", function (rs) {
                     console.log('>>> login success', rs);
                     $('#myid').val(rs.name);
                     wsconnection.listUser(function (x) {
@@ -67,23 +83,9 @@ class MyClass {
                 alert('WAJIB ISI EMAIL DAN NAMA');
             }
         })
-        const msgerForm = get(".msger-inputarea");
-        const msgerInput = get(".msger-input");
-        const msgerChat = get(".msger-chat");
 
-        const BOT_MSGS = [
-            "Hi, how are you?",
-            "Ohh... I can't understand what you trying to say. Sorry!",
-            "I like to play games... But I don't know how to play!",
-            "Sorry if my answers are not relevant. :))",
-            "I feel sleepy! :("
-        ];
 
-        // Icons made by Freepik from www.flaticon.com
-        const BOT_IMG = "../Client/img/hetset.png";
-        const PERSON_IMG = "../Client/img/client.png";
-        const BOT_NAME = "eCentrix";
-        const PERSON_NAME = "Me";
+
 
         msgerForm.addEventListener("submit", event => {
             event.preventDefault();
