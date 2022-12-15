@@ -17,7 +17,7 @@
         <div class="popup-header">
             <div class="logo-name">
                
-                <img alt="logo ecentrix" src="../Client/img/Logo_ecentrix.png" height="57px" width="30px">
+                <img alt="logo ecentrix" src="../Client/img/Logo_ecentrix.png" height="60px" width="30px">
                 <p>Demo Contact Center</p>
             </div>
             <a id="closechat-button">
@@ -46,11 +46,12 @@
             </span>
         </div>
     </div>
+
     <div class="chat-list" id="myForm">
         <div class="popup-header">
             <div class="logo-name">
                 <i class="badge badge-success" title="Online"></i>
-                <img alt="logo ecentrix" src="../Client/img/Logo_ecentrix.png" height="57px" width="31px">
+                <img alt="logo ecentrix" src="../Client/img/Logo_ecentrix.png" height="60px" width="30px">
                 <p>Demo Contact Center</p>    
             </div>
             <div class="header-buttons">
@@ -65,30 +66,60 @@
                 </a>    
             </div>
         </div>
+
         <div class="chatbox-body">
             <input id="myid" hidden>
-            <div class="chatbox-overlay">
-
-            </div>
+            <div class="chatbox-overlay"></div>
             <div class="chat-logs">
 
+                <main class="msger-chat">
+                    <div class="msg left-msg">
+                      <div
+                       class="msg-img"
+                       style="background-image: url(../Client/img/hetset.png)"
+                      ></div>
+                      <div class="msg-bubble">
+                        <div class="msg-info">
+                          <div class="msg-info-name">eCentrix</div>
+                          <div class="msg-info-time">12:45</div>
+                        </div>
+                        <div class="msg-text">
+                          Selamat datang, silahkan masukkan email dan nama kakak.
+                        </div>
+                      </div>
+                    </div>
+                
+                    <div class="msg right-msg">
+                      <div
+                       class="msg-img"
+                       style="background-image: url(../Client/img/client.png)"
+                      ></div>
+                      <div class="msg-bubble">
+                        <div class="msg-info">
+                          <div class="msg-info-name">Me</div>
+                          <div class="msg-info-time">12:46</div>
+                        </div>
+                        <div class="msg-text">
+                            Nama : client <br>
+                            Email : client@client.com
+                        </div>
+                      </div>
+                    </div>
+                </main>
             </div>
+
             <div class="chat-contain">
-                <form id="form-container-chat">
+                <form id="form-container-chat" class="msger-inputarea">
                     <input id="myid" hidden><br>
                     <select name="listUsers" id="listUsers" hidden></select>
-                    <!-- <label for="msg">
-                        <b>Message</b>
-                    </label> -->
-                    <input type="text" id="chat-input" placeholder="Send a message..."/>
-                    <!-- <textarea placeholder="Type message.." name="msg" id="msg" required></textarea> -->
-                    <button type="button" id="btnSend">
+                    <input  class="msger-input" type="text" id="chat-input" placeholder="Ketik Disini ..."/>
+                    <button type="submit" id="btnSend" class="msger-send-btn">
                         <img class="send-btn" src="../Client/img/send.png">
                     </button>
-                    <!-- <button type="button" class="btn cancel">Close</button> -->
                 </form>
             </div>
         </div>
+
         <div class="popup-footer" style="display: flex; justify-content: space-between;">
             <span class="cr">
               <p>Copyright ©️ 2022 eCentrix</p>
@@ -97,6 +128,7 @@
               <p>V 0.1</p>
             </span>
         </div>
+
     </div>
 </body>
 <script src='main.bundle.js'></script>

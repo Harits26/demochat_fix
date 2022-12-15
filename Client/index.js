@@ -1,10 +1,9 @@
 "use strict"
 import ws from '../Client/websocket'
-class MyClass{
+class MyClass {
 
-    constructor(){
-        // $('body').html('<button class="open-button">Chat</button> <div class="chat-popup" id="myForm"><form class="form-container"><h1>Chat</h1><input type="text" name="myid" id="myid" value="user'+Math.floor(Math.random() * 10)+'"><br><select name="listUsers" id="listUsers"></select><label for="msg"><b>Message</b></label><textarea placeholder="Type message.." name="msg" id="msg" required></textarea><button type="button" class="btn" id="btnSend">Send</button><button type="button" class="btn cancel">Close</button></form></div>');
-        // $('body').html('<button class="open-button">Chat</button> <div class="chat-popup" id="fill-form"><form class="form-container"><h1>Chat</h1><input type="email" placeholder="email" id="email" require><input type="nama" placeholder="name" id="name" require><button type="button" class="btn" id="fillBtn">Submit</button></form></div> <div class="chat-popup" id="myForm"><form class="form-container"><h1>Chat</h1><input id="myid"></p><br><select name="listUsers" id="listUsers"></select><label for="msg"><b>Message</b></label><textarea placeholder="Type message.." name="msg" id="msg" required></textarea><button type="button" class="btn" id="btnSend">Send</button><button type="button" class="btn cancel">Close</button></form></div>');
+    constructor() {
+
         var wsconnection = new ws($('#myid').val());
 
         // wsconnection.listUser(function(x){
@@ -15,9 +14,9 @@ class MyClass{
         //     });
         // });
 
-        $('.open-button').click(function(){
+        $('.open-button').click(function () {
             document.getElementById("open-button").style.display = "none";
-            if($("#myid").val() == "") {
+            if ($("#myid").val() == "") {
                 document.getElementById("fill-form").style.display = "block";
             }
             else {
@@ -25,37 +24,37 @@ class MyClass{
             }
         });
 
-        $('#closechat-button').click(function() {
+        $('#closechat-button').click(function () {
             document.getElementById("fill-form").style.display = "none";
             document.getElementById("open-button").style.display = "block";
         })
 
-        $('.cancel').click(function(){
+        $('.cancel').click(function () {
             document.getElementById("myForm").style.display = "none";
             document.getElementById("open-button").style.display = "block";
         });
 
-        $('#btnSend').click(function(){
-            wsconnection.sentChat($('#myid').val(), $('#listUsers').val(), $('#msg').val(), function(rs){
+        $('#btnSend').click(function () {
+            wsconnection.sentChat($('#myid').val(), $('#listUsers').val(), $('#msg').val(), function (rs) {
                 console.log('>>> return message', rs);
                 $('#msg').val('')
             })
         });
 
-        $('#fillBtn').click(function() {
+        $('#fillBtn').click(function () {
             var id = Math.floor(Math.random() * 10);
-            if($('#name').val() != '' && $('#emai').val() != '') {
-                wsconnection.login("user"+id, $('#name').val(), $('#email').val(), "client 1", function(rs){
+            if ($('#name').val() != '' && $('#emai').val() != '') {
+                wsconnection.login("user" + id, $('#name').val(), $('#email').val(), "client 1", function (rs) {
                     console.log('>>> login success', rs);
                     $('#myid').val(rs.name);
-                    wsconnection.listUser(function(x){
+                    wsconnection.listUser(function (x) {
                         console.log($('#myid').val());
                         console.log('---')
                         console.log(x)
                         console.log('---')
                         $('#listUsers').html('');
-                        $.each(x, function(key, value){
-                            $('#listUsers').append('<option value="'+value.name+'">'+value.name+'</option>');
+                        $.each(x, function (key, value) {
+                            $('#listUsers').append('<option value="' + value.name + '">' + value.name + '</option>');
                         });
                     });
                 })
@@ -63,11 +62,87 @@ class MyClass{
                 $('#emai').val('');
                 document.getElementById("fill-form").style.display = "none";
                 document.getElementById("myForm").style.display = "block";
-            } 
-            else{
+            }
+            else {
                 alert('WAJIB ISI EMAIL DAN NAMA');
             }
-        })
+        })
+        const msgerForm = get(".msger-inputarea");
+        const msgerInput = get(".msger-input");
+        const msgerChat = get(".msger-chat");
+
+        const BOT_MSGS = [
+            "Hi, how are you?",
+            "Ohh... I can't understand what you trying to say. Sorry!",
+            "I like to play games... But I don't know how to play!",
+            "Sorry if my answers are not relevant. :))",
+            "I feel sleepy! :("
+        ];
+
+        // Icons made by Freepik from www.flaticon.com
+        const BOT_IMG = "../Client/img/hetset.png";
+        const PERSON_IMG = "../Client/img/client.png";
+        const BOT_NAME = "eCentrix";
+        const PERSON_NAME = "Me";
+
+        msgerForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const msgText = msgerInput.value;
+            if (!msgText) return;
+
+            appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+            msgerInput.value = "";
+
+            botResponse();
+        });
+
+        function appendMessage(name, img, side, text) {
+            //   Simple solution for small apps
+            const msgHTML = `
+<div class="msg ${side}-msg">
+<div class="msg-img" style="background-image: url(${img})"></div>
+
+<div class="msg-bubble">
+<div class="msg-info">
+  <div class="msg-info-name">${name}</div>
+  <div class="msg-info-time">${formatDate(new Date())}</div>
+</div>
+
+<div class="msg-text">${text}</div>
+</div>
+</div>
+`;
+
+            msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+            msgerChat.scrollTop += 500;
+        }
+
+        function botResponse() {
+            const r = random(0, BOT_MSGS.length - 1);
+            const msgText = BOT_MSGS[r];
+            const delay = msgText.split(" ").length * 100;
+
+            setTimeout(() => {
+                appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+            }, delay);
+        }
+
+        // Utils
+        function get(selector, root = document) {
+            return root.querySelector(selector);
+        }
+
+        function formatDate(date) {
+            const h = "0" + date.getHours();
+            const m = "0" + date.getMinutes();
+
+            return `${h.slice(-2)}:${m.slice(-2)}`;
+        }
+
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
 
     }
 }
