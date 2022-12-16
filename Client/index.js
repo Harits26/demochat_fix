@@ -86,6 +86,22 @@ class MyClass {
             }
         })
 
+        $('#call-button').click(function () {
+            document.getElementById("calldiv").style.display = "block";
+        })
+        $('#decbtn').click(function () {
+            document.getElementById("calldiv").style.display = "none";
+        })
+        $('#vicall-button').click(function () {
+            document.getElementById("vid_div").style.display = "block";
+        })
+        $('#decvidbtn').click(function () {
+            document.getElementById("vid_div").style.display = "none";
+        })
+
+
+
+
         msgerForm.addEventListener("submit", event => {
             event.preventDefault();
 
@@ -144,6 +160,19 @@ class MyClass {
         function random(min, max) {
             return Math.floor(Math.random() * (max - min) + min);
         }
+
+        $('#call-button').click(function () {
+            document.getElementById("calldiv").style.display = "block";
+        })
+        $('#decbtn').click(function () {
+            document.getElementById("calldiv").style.display = "none";
+        })
+        $('#vicall-button').click(function () {
+            document.getElementById("vid_div").style.display = "block";
+        })
+        $('#decvidbtn').click(function () {
+            document.getElementById("vid_div").style.display = "none";
+        })
 
     }
 }
