@@ -1,5 +1,6 @@
 "use strict"
 import ws from '../Client/websocket'
+import { appendMessage, get, formatDate, random } from './event';
 class MyClass {
 
     constructor() {
@@ -11,7 +12,6 @@ class MyClass {
 
         const msgerForm = get(".msger-inputarea");
         const msgerInput = get(".msger-input");
-        const msgerChat = get(".msger-chat");
 
         const BOT_MSGS = [
             "Hi, how are you?",
@@ -63,7 +63,7 @@ class MyClass {
             if ($('#name').val() != '' && $('#email').val() != '') {
                 PERSON_NAME = $('#name').val();
                 wsconnection.login($('#name').val(), $('#email').val(), "client 2", function (rs) {
-                    console.log('>>> login success', rs);
+                    console.log('>>> login ', rs);
                     $('#myid').val(rs.name);
                     wsconnection.listUser(function (x) {
                         console.log($('#myid').val());
@@ -111,29 +111,10 @@ class MyClass {
             appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
             msgerInput.value = "";
 
-            botResponse();
+            // botResponse();
         });
 
-        function appendMessage(name, img, side, text) {
-            //   Simple solution for small apps
-            const msgHTML = `
-<div class="msg ${side}-msg">
-<div class="msg-img" style="background-image: url(${img})"></div>
 
-<div class="msg-bubble">
-<div class="msg-info">
-  <div class="msg-info-name">${name}</div>
-  <div class="msg-info-time">${formatDate(new Date())}</div>
-</div>
-
-<div class="msg-text">${text}</div>
-</div>
-</div>
-`;
-
-            msgerChat.insertAdjacentHTML("beforeend", msgHTML);
-            msgerChat.scrollTop += 500;
-        }
 
         function botResponse() {
             const r = random(0, BOT_MSGS.length - 1);
@@ -145,21 +126,7 @@ class MyClass {
             }, delay);
         }
 
-        // Utils
-        function get(selector, root = document) {
-            return root.querySelector(selector);
-        }
 
-        function formatDate(date) {
-            const h = "0" + date.getHours();
-            const m = "0" + date.getMinutes();
-
-            return `${h.slice(-2)}:${m.slice(-2)}`;
-        }
-
-        function random(min, max) {
-            return Math.floor(Math.random() * (max - min) + min);
-        }
 
         $('#call-button').click(function () {
             document.getElementById("calldiv").style.display = "block";

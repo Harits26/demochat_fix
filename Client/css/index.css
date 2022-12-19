@@ -590,14 +590,15 @@ body {
   /* background-color: red; */
   font-family: 'Montserrat', sans-serif;
   color: white;
-  padding: 20px 20px;
+  padding: 30px 30px;
 }
 
 #popup-welcome {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .popup-body #popup-welcome h1 {
+  margin-bottom: 25px;
   letter-spacing: 2px;
   font-size: 30px;
 }
