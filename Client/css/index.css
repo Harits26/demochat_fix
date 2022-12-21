@@ -34,19 +34,17 @@ body {
   background: rgba(107,107,185,1);
   background-image: url("../img/background.png");
   box-shadow: white;
-  /* opacity:0.5; */
   top:20px;
   left:50px;
-  /* z-index: -100;  */
   right: 20px; 
   bottom: 20px;
   display: none;
   border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background-size: 500px;
-    background-repeat: no-repeat;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-size: 500px;
+  background-repeat: no-repeat;
 }
 
 #vid_div{
@@ -57,19 +55,18 @@ body {
   background-image: url("../img/image_vidcall.png");
   background-position: center;
   box-shadow: white;
-  /* opacity:0.5; */
   top:20px;
   left:50px;
-  /* z-index: -100;  */
   right: 20px; 
   bottom: 20px;
   display: none;
   border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background-size: 500px;
-    background-repeat: no-repeat;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .vicall-contain{
@@ -315,10 +312,8 @@ body {
   background: rgba(107,107,185,1);
   background-image: url("../img/background.png");
   box-shadow: white;
-  /* opacity:0.5; */
   top:20px;
   left:50px;
-  /* z-index: -100;  */
   right: 20px; 
   bottom: 20px;
   display: none;
@@ -338,19 +333,18 @@ body {
   background-image: url("../img/image_vidcall.png");
   background-position: center;
   box-shadow: white;
-  /* opacity:0.5; */
   top:20px;
   left:50px;
-  /* z-index: -100;  */
   right: 20px; 
   bottom: 20px;
   display: none;
   border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background-size: 500px;
-    background-repeat: no-repeat;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .vicall-contain{
@@ -396,10 +390,13 @@ body {
  width: 30px; 
  height: 30px; 
  cursor: pointer;
+ border-radius: var(--button_radius);
+ background: var(--button_outline_color);
 }
 
 .send-btn:hover{
   box-shadow: inset;
+  transform: translateY(-0.33em);
 }
 
 .status{
@@ -431,8 +428,6 @@ body {
   position: fixed;
   bottom: 10px;
   right: 25px;
-  /* top: 7px; */
-  /* border: 3px solid #f1f1f1; */
   z-index: 9;
   width: 500px;
   height: 700px;
@@ -475,6 +470,7 @@ body {
 
 #form-container-login p {
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 /* Add style to login form input */
@@ -482,8 +478,10 @@ body {
   padding: 10px 10px;
   border-radius: 12px 12px 12px 12px;
   border: 1px solid rgba(107,107,185,1);
-  /* color: lightgray; */
   width: 100%;
+  outline: none;
+  color: #0d0c22;
+ transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 /* Full-width textarea */
@@ -495,12 +493,18 @@ body {
   background: #f1f1f1;
   resize: none;
   min-height: 200px;
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #7a9cc6;
 }
 
 /* When the textarea gets focus, do something */
 .form-container textarea:focus {
   background-color: #ddd;
   outline: none;
+  opacity: 0;
+  transition: opacity .3s;
 }
 
 /* Set a style for the submit/send button */
@@ -515,16 +519,10 @@ body {
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
-
-
-/* .header-buttons {
-  top: 50px;
-} */
-
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+  transform: translateY(-0.33em);
 }
 
 /* popup header */
@@ -590,7 +588,7 @@ body {
   /* background-color: red; */
   font-family: 'Montserrat', sans-serif;
   color: white;
-  padding: 30px 30px;
+  padding: 50px 30px;
 }
 
 #popup-welcome {
@@ -610,12 +608,22 @@ body {
   font-size: 20px;
 }
 
+#logoutBtn{
+  right: auto;
+  border: 2px solid rgba(35,35,115,1);
+  border-radius: 12px 12px 12px 12px;
+  padding: 7px 7px;
+  display: block;
+  background-color: rgba(254,160,46,1);
+  color: black;
+  font-weight: lighter;
+  position: absolute;
+}
 #fillBtn {
   width: 80px;
   border: 2px solid rgba(35,35,115,1);
   border-radius: 12px 12px 12px 12px;
   padding: 7px 7px;
-  /* right: 0px; */
   display: block;
   margin-top: 20px;
   margin-left: auto;
@@ -654,10 +662,10 @@ body {
 
 .ver1{
   right: 0px;
-    font-family: Montserrat;
-    font-weight: Normal;
-    font-size: 8px;
-    text-align: center;
+  font-family: Montserrat;
+  font-weight: Normal;
+  font-size: 8px;
+  text-align: center;
 }
 
 /* CHAT BOX AFTER LOGIN */
@@ -690,11 +698,8 @@ body {
   outline:none;
   border:1px solid #ccc;
   color:black;
-  /* border-top:none;
-  border-bottom-right-radius:5px;
-  border-bottom-left-radius:5px; */
   border-radius: 10px;
-  overflow:hidden;
+  overflow-wrap: break-word;
   
 }
 
@@ -772,6 +777,7 @@ body {
   padding: 15px;
   border-radius: 12px;
   background-color: white;
+  overflow-wrap: break-word;
 }
 .msg-info {
   display: flex;

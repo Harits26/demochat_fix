@@ -31,13 +31,36 @@ class MyClass {
         //     });
         // });
 
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        $('#logoutBtn').click(function () {
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.getElementById("open-button").style.display = "block";
+        })
+
         $('.open-button').click(function () {
+            var user = getCookie("username");
             document.getElementById("open-button").style.display = "none";
-            if ($("#myid").val() == "") {
+            if (document.cookie == "") {
                 document.getElementById("fill-form").style.display = "block";
             }
             else {
                 document.getElementById("myForm").style.display = "block";
+                alert("Welcome again " + user);
             }
         });
 
@@ -52,7 +75,7 @@ class MyClass {
         });
 
         $('#btnSend').click(function () {
-            wsconnection.sentChat(PERSON_NAME, 'agent', $('#chat-input').val(), function (rs) {
+            wsconnection.sentChat(PERSON_NAME, 'agent nisa', $('#chat-input').val(), function (rs) {
                 console.log('>>> return message', rs);
                 $('#msg').val('')
             })
@@ -64,7 +87,8 @@ class MyClass {
                 PERSON_NAME = $('#name').val();
                 wsconnection.login($('#name').val(), $('#email').val(), "client 2", function (rs) {
                     console.log('>>> login ', rs);
-                    $('#myid').val(rs.name);
+                    setCookie("username", rs.id, 2);
+                    $('#myid').val(rs.id);
                     wsconnection.listUser(function (x) {
                         console.log($('#myid').val());
                         console.log('---')
@@ -80,11 +104,13 @@ class MyClass {
                 $('#emai').val('');
                 document.getElementById("fill-form").style.display = "none";
                 document.getElementById("myForm").style.display = "block";
+
             }
             else {
                 alert('WAJIB ISI EMAIL DAN NAMA');
             }
         })
+
 
         $('#call-button').click(function () {
             document.getElementById("calldiv").style.display = "block";
@@ -114,7 +140,12 @@ class MyClass {
             // botResponse();
         });
 
-
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
 
         function botResponse() {
             const r = random(0, BOT_MSGS.length - 1);
