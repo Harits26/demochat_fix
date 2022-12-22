@@ -608,8 +608,94 @@ body {
   font-size: 20px;
 }
 
-#logoutBtn{
-  right: auto;
+#logoutBtn {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #cdcdcd;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  position: absolute;
+  transition: width 0.2s ease-in-out;
+  font-weight: 50;
+  font-family: inherit;
+  right: 30px;
+}
+#logoutBtn:hover {
+  width: 100px;
+}
+#logoutBtn::before,
+#logoutBtn::after {
+  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  /* background-image: url(../img/lupa_pass.png); */
+}
+#logoutBtn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+#logoutBtn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+#logoutBtn:focus {
+  outline: none;
+}
+.btn-text {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+#logoutBtn:hover::before,
+#logoutBtn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+.logout-btn:hover .btn-text {
+  opacity: 1;
+}
+.logout-icon::after,
+.logout-icon::before {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: calc(50% - 10px);
+  /* background-image: url(../img/lupa_pass.png);
+  background-repeat: no-repeat;
+  background-size: cover; */
+  overflow: hidden;
+}
+.logout-icon::before {
+  left: 22px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.logout-icon::after {
+  right: 22px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+#logoutBtn:hover .logout-icon::before {
+  left: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+#logoutBtn:hover .logout-icon::after {
+  right: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+/* #logoutBtn{
+  right: 30px;
   border: 2px solid rgba(35,35,115,1);
   border-radius: 12px 12px 12px 12px;
   padding: 7px 7px;
@@ -619,6 +705,16 @@ body {
   font-weight: lighter;
   position: absolute;
 }
+#logoutBtn:hover{
+  background-color: #c42323;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+#logoutBtn:active{
+  transform: translateY(-1px);
+} */
+
 #fillBtn {
   width: 80px;
   border: 2px solid rgba(35,35,115,1);

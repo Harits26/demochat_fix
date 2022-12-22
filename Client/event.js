@@ -32,6 +32,6 @@ export function formatDate(date) {
     return `${h.slice(-2)}:${m.slice(-2)}`;
 }
 
-export function random(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+export function random(clientId) {
+    return clientId + Math.floor(Math.random() * 1000);
 }

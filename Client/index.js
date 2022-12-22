@@ -1,4 +1,5 @@
 "use strict"
+import { weekdaysShort } from 'moment-timezone';
 import ws from '../Client/websocket'
 import { appendMessage, get, formatDate, random } from './event';
 class MyClass {
@@ -9,6 +10,7 @@ class MyClass {
         const PERSON_IMG = "../Client/img/client.png";
         const BOT_NAME = "eCentrix";
         var PERSON_NAME = "";
+        var user_id = "";
 
         const msgerForm = get(".msger-inputarea");
         const msgerInput = get(".msger-input");
@@ -49,7 +51,8 @@ class MyClass {
 
         $('#logoutBtn').click(function () {
             document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.getElementById("open-button").style.display = "block";
+            document.getElementById("fill-form").style.display = "block";
+            document.getElementById("myForm").style.display = "none";
         })
 
         $('.open-button').click(function () {
@@ -75,7 +78,14 @@ class MyClass {
         });
 
         $('#btnSend').click(function () {
-            wsconnection.sentChat(PERSON_NAME, 'agent nisa', $('#chat-input').val(), function (rs) {
+            if (user_id == "") {
+                user_id = getCookie("username");
+                wsconnection.getName(user_id, function (rs) {
+                    // PERSON_NAME = rs[0].name
+                })
+                PERSON_NAME = $('#myid').value;
+            }
+            wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
                 console.log('>>> return message', rs);
                 $('#msg').val('')
             })
@@ -84,13 +94,14 @@ class MyClass {
 
         $('#fillBtn').click(function () {
             if ($('#name').val() != '' && $('#email').val() != '') {
+                user_id = random("client");
                 PERSON_NAME = $('#name').val();
-                wsconnection.login($('#name').val(), $('#email').val(), "client 2", function (rs) {
-                    console.log('>>> login ', rs);
-                    setCookie("username", rs.id, 2);
-                    $('#myid').val(rs.id);
+                wsconnection.login($('#name').val(), $('#email').val(), "client 2", user_id, function (rs) {
+                    console.log('>>> login ', rs);
+                    setCookie("username", rs.id, 55);
+                    $('#myid').val(rs.name);
                     wsconnection.listUser(function (x) {
-                        console.log($('#myid').val());
+                        console.log($('#myid').value);
                         console.log('---')
                         console.log(x)
                         console.log('---')
@@ -130,6 +141,13 @@ class MyClass {
 
         msgerForm.addEventListener("submit", event => {
             event.preventDefault();
+            if (user_id == "") {
+                user_id = getCookie("username");
+                // wsconnection.getName(user_id, function (rs) {
+                //     PERSON_NAME = rs.name
+                // })
+                PERSON_NAME = $('#myid').value;
+            }
 
             const msgText = msgerInput.value;
             if (!msgText) return;
@@ -137,6 +155,10 @@ class MyClass {
             appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
             msgerInput.value = "";
 
+            // wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
+            //     console.log('>>> return message', rs);
+            //     $('#msg').val('')
+            // })
             // botResponse();
         });
 

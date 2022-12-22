@@ -58,14 +58,20 @@ export default class WebSocket {
         })
     }
 
+    getName(id, fn) {
+        this.websocket.emit('getName', { id: id }, function (rs) {
+            fn(rs);
+        })
+    }
+
     sentChat(sender, destination, message, fn) {
         this.websocket.emit('chat', { sender: sender, destination: destination, message: message, source: 'client 2' }, function (rs) {
             fn(rs);
         })
     }
 
-    login(name, email, source, fn) {
-        this.websocket.emit('login', { id: name, email: email, source: source }, function (rs) {
+    login(name, email, source, id, fn) {
+        this.websocket.emit('login', { name: name, email: email, source: source, id: id }, function (rs) {
             // console.log('>>> login return ', rs)
             fn(rs);
         })
