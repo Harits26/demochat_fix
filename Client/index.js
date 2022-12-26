@@ -77,19 +77,21 @@ class MyClass {
             document.getElementById("open-button").style.display = "block";
         });
 
-        $('#btnSend').click(function () {
-            if (user_id == "") {
-                user_id = getCookie("username");
-                wsconnection.getName(user_id, function (rs) {
-                    // PERSON_NAME = rs[0].name
-                })
-                PERSON_NAME = $('#myid').value;
-            }
-            wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
-                console.log('>>> return message', rs);
-                $('#msg').val('')
-            })
-        });
+        // $('#btnSend').click(function () {
+        //     if (user_id == "") {
+        //         user_id = getCookie("username");
+        //         wsconnection.getName(user_id, function (rs) {
+        //             // PERSON_NAME = rs[0].name
+        //             console.log('ini id nya cuy', rs);
+        //             PERSON_NAME = rs.name;
+        //         })
+                
+        //     }
+        //     wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
+        //         console.log('>>> return message', rs);
+        //         $('#msg').val('')
+        //     })
+        // });
 
 
         $('#fillBtn').click(function () {
@@ -141,18 +143,37 @@ class MyClass {
 
         msgerForm.addEventListener("submit", event => {
             event.preventDefault();
+
+            var nameClient = PERSON_NAME;
+
             if (user_id == "") {
                 user_id = getCookie("username");
-                // wsconnection.getName(user_id, function (rs) {
-                //     PERSON_NAME = rs.name
-                // })
-                PERSON_NAME = $('#myid').value;
+                wsconnection.getName(user_id, function (rs) {
+                    // PERSON_NAME = rs[0].name
+                    console.log('ini id nya cuy', rs);
+                    PERSON_NAME = rs.name;
+                    nameClient = rs.name;
+                    appendMessage(rs.name, PERSON_IMG, "right", msgText);
+                    wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
+                        console.log('>>> return message', rs);
+                        $('#msg').val('')
+                    })
+                    msgerInput.value = "";
+                })
+                return;
             }
+            
 
             const msgText = msgerInput.value;
             if (!msgText) return;
 
-            appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+            appendMessage(nameClient, PERSON_IMG, "right", msgText);
+            
+            wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
+                console.log('>>> return message', rs);
+                $('#msg').val('')
+            })
+
             msgerInput.value = "";
 
             // wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
