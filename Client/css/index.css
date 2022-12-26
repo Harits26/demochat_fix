@@ -609,8 +609,8 @@ body {
 }
 
 #logoutBtn {
-  width: 50px;
-  height: 30px;
+  width: 30px;
+  height: 40px;
   border: 1px solid #cdcdcd;
   background: white;
   border-radius: 25px;
@@ -631,18 +631,18 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  height: 10px;
-  width: 10px;
+  height: auto;
+  width: auto;
   /* background-image: url(../img/lupa_pass.png); */
 }
 #logoutBtn::after {
-  right: 14px;
+  right: 10px;
   overflow: hidden;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
 #logoutBtn::before {
-  left: 14px;
+  left: 10px;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
 }
@@ -694,15 +694,15 @@ body {
   height: 4px;
   top: calc(50% - 2px);
 }
-/* #logoutBtn{
+#logoutBtn{
   right: 30px;
   border: 2px solid rgba(35,35,115,1);
   border-radius: 12px 12px 12px 12px;
   padding: 7px 7px;
   display: block;
-  background-color: rgba(254,160,46,1);
+  background-color: white;
   color: black;
-  font-weight: lighter;
+  font-weight: bold;
   position: absolute;
 }
 #logoutBtn:hover{
@@ -713,7 +713,7 @@ body {
 }
 #logoutBtn:active{
   transform: translateY(-1px);
-} */
+}
 
 #fillBtn {
   width: 80px;
