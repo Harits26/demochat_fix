@@ -11,6 +11,9 @@ class MyClass {
         const BOT_NAME = "eCentrix";
         var PERSON_NAME = "";
         var user_id = "";
+        var divLeft = get(".left-msg");
+        var divRight = get(".right-msg");
+
 
         const msgerForm = get(".msger-inputarea");
         const msgerInput = get(".msger-input");
@@ -51,6 +54,9 @@ class MyClass {
 
         $('#logoutBtn').click(function () {
             document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+            // wssconnection.
+
             document.getElementById("fill-form").style.display = "block";
             document.getElementById("myForm").style.display = "none";
         })
@@ -70,6 +76,8 @@ class MyClass {
         $('#closechat-button').click(function () {
             document.getElementById("fill-form").style.display = "none";
             document.getElementById("open-button").style.display = "block";
+            divLeft.remove();
+            divRight.remove();
         })
 
         $('.cancel').click(function () {
@@ -85,7 +93,7 @@ class MyClass {
         //             console.log('ini id nya cuy', rs);
         //             PERSON_NAME = rs.name;
         //         })
-                
+
         //     }
         //     wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
         //         console.log('>>> return message', rs);
@@ -100,7 +108,7 @@ class MyClass {
                 PERSON_NAME = $('#name').val();
                 wsconnection.login($('#name').val(), $('#email').val(), "client 2", user_id, function (rs) {
                     console.log('>>> login ', rs);
-                    setCookie("username", rs.id, 55);
+                    setCookie("username", rs.id, 10);
                     $('#myid').val(rs.name);
                     wsconnection.listUser(function (x) {
                         console.log($('#myid').value);
@@ -153,22 +161,15 @@ class MyClass {
                     console.log('ini id nya cuy', rs);
                     PERSON_NAME = rs.name;
                     nameClient = rs.name;
-                    appendMessage(rs.name, PERSON_IMG, "right", msgText);
-                    wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
-                        console.log('>>> return message', rs);
-                        $('#msg').val('')
-                    })
-                    msgerInput.value = "";
                 })
-                return;
             }
-            
+
 
             const msgText = msgerInput.value;
             if (!msgText) return;
 
             appendMessage(nameClient, PERSON_IMG, "right", msgText);
-            
+
             wsconnection.sentChat(user_id, 'agent nisa', $('#chat-input').val(), function (rs) {
                 console.log('>>> return message', rs);
                 $('#msg').val('')

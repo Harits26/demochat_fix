@@ -18,8 +18,7 @@ export default class WebSocket {
     }
 
     connect() {
-        // this.websocket = io("ws://10.18.1.114:3000", { path: '/bootcamp', secure: true, transports: ['websocket'] });
-        this.websocket = io("ws://127.0.0.1:3000", { path: '/bootcamp', secure: true, transports: ['websocket'] });
+        this.websocket = io("ws://10.18.1.13:3000", { path: '/bootcamp', secure: true, transports: ['websocket'] });
         this.setWSocket(this.websocket)
         // this.websocket.emit('login', {id: username, email: email, source: "client 2"}, function(rs){
         //     console.log('>>> login return ', rs)

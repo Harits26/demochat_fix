@@ -17,7 +17,8 @@ export function appendMessage(name, img, side, text) {
     `;
 
     msgerChat.insertAdjacentHTML("beforeend", msgHTML);
-    msgerChat.scrollTop += 500;
+    // msgerChat.scrollTop += 500;
+    msgerChat.animate({ scrollTop: $(document).height() }, 500);
 }
 
 // Utils
